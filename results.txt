@@ -1,0 +1,6 @@
+ -> Sorted 25000 numbers in: PT14M1.717S
+
+ -> Sorted 50000 numbers in: PT2H4M37.754S
+
+ -> Sorted 100000 numbers in: PT18H20M33.106S
+
