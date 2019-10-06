@@ -14,6 +14,7 @@ public class week1 {
     }
 
     public void opdracht1(){
+//
         int[] testNumbers= {25000,50000,100000,200000,400000};
 
         for (int i = 0; i < testNumbers.length; i++) {
@@ -24,7 +25,6 @@ public class week1 {
 
             Instant startTime  = Instant.now();
             bubblesrt(numbers);
-            System.out.println(numbers.toString());
             Instant endTime = Instant.now();
 
             Duration time = Duration.between(startTime,endTime);
@@ -43,7 +43,7 @@ public class week1 {
         {
             for (int x = 0; x < list.size(); x++) // bubble sort outer loop
             {
-                for (int i = 0; i < list.size() - i; i++) {
+                for (int i = 0; i < list.size() -x - 1; i++) {
                     if (list.get(i).compareTo(list.get(i + 1)) > 0) {
                         temp = list.get(i);
                         list.set(i, list.get(i + 1));
