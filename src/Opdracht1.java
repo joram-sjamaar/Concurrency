@@ -77,6 +77,7 @@ public class Opdracht1 {
 //        }
 //    }
 
+
 //    @SuppressWarnings("SuspiciousListRemoveInLoop")
 //    private List<Integer> bubbleSort(List<Integer> array) {
 //

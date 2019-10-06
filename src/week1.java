@@ -18,12 +18,13 @@ public class week1 {
 
         for (int i = 0; i < testNumbers.length; i++) {
             // generates a list with random numbers
-            List<Integer> numbers = generateArrayWithNumbers(testNumbers[i]);
+            ArrayList<Integer> numbers = generateArrayWithNumbers(testNumbers[i]);
 
             System.out.println("  --            starting to sort            --");
 
             Instant startTime  = Instant.now();
-            List<Integer> sortedList = bubbleSort(numbers);
+            bubblesrt(numbers);
+            System.out.println(numbers.toString());
             Instant endTime = Instant.now();
 
             Duration time = Duration.between(startTime,endTime);
@@ -36,34 +37,25 @@ public class week1 {
 
 
     }
-
-
-    private List<Integer> bubbleSort(List<Integer> array) {
-
+    public static void bubblesrt(ArrayList<Integer> list) {
         int temp;
-        for (int j = 0; j < array.size(); j++) {
-            for (int i = 1; i < array.size() - j; i++) {
-                if (array.get(i - 1) > array.get(i)) {
-
-                    // Sla tijdelijk op
-                    temp = array.get(i);
-
-                    // Wissel getal 1
-                    array.remove(i);
-                    array.add(i, array.get(i - 1));
-
-                    // Wissel getal 2
-                    array.remove(i - 1);
-                    array.add(i - 1, temp);
+        if (list.size() > 1) // check if the number of orders is larger than 1
+        {
+            for (int x = 0; x < list.size(); x++) // bubble sort outer loop
+            {
+                for (int i = 0; i < list.size() - i; i++) {
+                    if (list.get(i).compareTo(list.get(i + 1)) > 0) {
+                        temp = list.get(i);
+                        list.set(i, list.get(i + 1));
+                        list.set(i + 1, temp);
+                    }
                 }
             }
         }
-
-        return array;
     }
 
-    private List<Integer> generateArrayWithNumbers(int amount_of_numbers) {
-        List<Integer> array = new ArrayList<>();
+    private ArrayList<Integer> generateArrayWithNumbers(int amount_of_numbers) {
+        ArrayList<Integer> array = new ArrayList<>();
 
         for (int i = 0; i <= amount_of_numbers; i ++) {
             array.add((int)(Math.random() * 1000 + 1));
