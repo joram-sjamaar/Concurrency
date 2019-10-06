@@ -1,6 +1,10 @@
- -> Sorted 25000 numbers in: PT14M1.717S
+opdracht 1:
+onderstaande metingen zijn gemiddeldes:
+    -> Sorted 25000 numbers in: PT3.895S
+    -> Sorted 50000 numbers in: PT15.407S
+    -> Sorted 100000 numbers in: PT59.187S
+    -> Sorted 200000 numbers in: PT4M19.011S
+    -> Sorted 400000 numbers in: PT16M43.562S
 
- -> Sorted 50000 numbers in: PT2H4M37.754S
-
- -> Sorted 100000 numbers in: PT18H20M33.106S
-
+Wat ons op valt aan de metingen is dat wanneer het aantal nummers verdubbeld wordt de tijd die de bubblesort methode ervoor nodig heeft
+4x zo veel. dit betekend dat wanneer er 50% meer nummers bij komen de methode er 2x zo lang over doet.
