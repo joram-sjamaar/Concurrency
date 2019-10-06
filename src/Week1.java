@@ -1,6 +1,9 @@
+import model.MergeSort;
+
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Week1 {
     public static void main(String[] args) {
@@ -8,7 +11,8 @@ public class Week1 {
     }
 
     public void run(){
-        Opdracht1();
+//        Opdracht1();
+        Opdracht2();
     }
 
 //    Schrijf een Java-programma dat een instelbaar aantal gehele getallen genereert en deze in een array
@@ -56,11 +60,47 @@ public class Week1 {
     }
 
 //    Doe hier hetzelfde als in opdracht 1.1, maar splits nu de array vóór het sorteren in twee helften. Sorteer
-//    elke array daarna (achterelkaar, in dezelfde thread). Na het sorteren moet je de twee gesorteerde
-//    lijsten uiteraard weer samenvoegen.
+//    elke array daarna (achterelkaar, in dezelfde thread). Na het sorteren moet je de twee gesorteerde lijsten uiteraard weer samenvoegen.
 //    Hoeveel tijd was er nu nodig voor het sorteren? Welke relatie is er tussen deze meetresultaten en die
 //    van de vorige opdracht? Hoe verklaar je dit?
     private void Opdracht2() {
+
+
+        int[] testNumbers= {
+                25000,
+                50000,
+                100000,
+                200000,
+                400000
+        };
+
+        for (int testNumber : testNumbers) {
+
+            // Genereer een Lijst met wikkeleurige getallen
+            ArrayList<Integer> numbers = generateArrayWithNumbers(testNumber);
+
+            System.out.printf("-=[ Starting SORT of %d numbers ]=-\n", testNumber);
+
+            // Registreer de begin tijd
+            Instant startTime = Instant.now();
+
+            // Splits de array
+            List<Integer> part1 = numbers.subList(0, numbers.size() / 2);
+            List<Integer> part2 = numbers.subList(numbers.size() / 2, numbers.size());
+
+            bubbleSort(part1);
+            bubbleSort(part2);
+
+            part1.addAll(part2);
+            MergeSort.sort(part1);
+
+            // Registreer de eind tijd
+            Instant endTime = Instant.now();
+
+            // Laat resultaat zien
+            System.out.printf(" -> Sorted %d numbers in: %s\n\n", testNumber, Duration.between(startTime, endTime));
+
+        }
 
     }
 
@@ -106,9 +146,7 @@ public class Week1 {
     }
 
 
-
-
-    public static void bubbleSort(ArrayList<Integer> list) {
+    public static void bubbleSort(List<Integer> list) {
         int temp;
         if (list.size() > 1) // check if the number of orders is larger than 1
         {

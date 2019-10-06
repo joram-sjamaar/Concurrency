@@ -8,3 +8,12 @@ onderstaande metingen zijn gemiddeldes:
 
 Wat ons op valt aan de metingen is dat wanneer het aantal nummers verdubbeld wordt de tijd die de bubblesort methode ervoor nodig heeft
 4x zo veel. dit betekend dat wanneer er 50% meer nummers bij komen de methode er 2x zo lang over doet.
+
+
+opdracht 2:
+ -> Sorted 25000 numbers in: PT1.865S
+ -> Sorted 50000 numbers in: PT7.537S
+ -> Sorted 100000 numbers in: PT30.595S
+ -> Sorted 200000 numbers in: PT2M6.552S
+ -> Sorted 400000 numbers in: PT9M12.972S
+
