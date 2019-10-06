@@ -39,9 +39,9 @@ public class Week1 {
             // Registreer de eind tijd
             Instant endTime = Instant.now();
 
-            Duration time = Duration.between(startTime, endTime);
-            String string = String.format(" -> Sorted %d numbers in: %s\n", testNumber, time);
-            System.out.println(string);
+            // Laat resultaat zien
+            System.out.printf(" -> Sorted %d numbers in: %s\n", testNumber, Duration.between(startTime, endTime));
+
         }
 
 
