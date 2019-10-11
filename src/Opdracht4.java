@@ -1,0 +1,71 @@
+import Util.Utils;
+import model.ArrayDivider;
+
+import java.time.Duration;
+import java.time.Instant;
+import java.util.List;
+
+/**
+ *  Maak nu een programma waarin bij het sorteren van de array deze weer in twee helften wordt gesplitst
+ *     zoals in opdracht 1.2. Start ook nu voor elke helft weer een thread, waarbij elke thread verantwoordelijk
+ *     is voor het sorteren van zijn deel van de lijst.
+ *     Dit keer echter bekijkt de thread hoeveel nummers er gesorteerd moeten worden. Is dit meer dan een
+ *     bepaalde drempelwaarde, dan zal de thread 2 nieuwe threads aanmaken die ieder weer één helft van
+ *     de lijst sorteren. Zijn die threads klaar, dan voegt de thread de twee (gesorteerde) arrays weer samen.
+ *     Op die manier ontstaat dus een ‘boom’ van actieve threads.
+ *     Threads die hun werk niet gaan ‘outsourcen’ sorteren de arrays weer met bubble sort.
+ *     Experimenteer nu met de drempelwaarde waarbij een thread het werk gaat uitbesteden aan twee
+ *     nieuwe threads. Print steeds weer uit hoe lang het duurt om de array te sorteren.
+ *     Toon je resultaten in een grafiek en beantwoord de volgende vragen:
+ *             • Vanaf welk punt leverde het verlagen van de drempelwaarde geen verbetering in snelheid meer op?
+ *             • Kan je dit verklaren?
+ *             • Wat zorgt ervoor dat het werk bij bepaalde drempelwaarden sneller kan worden gedaan?
+ *     Waarom heeft het na verloop van tijd geen zin meer om de drempelwaarde te verlagen?
+ */
+
+public class Opdracht4 {
+    private static int max= 1000;
+
+    public static void Opdracht4(){
+
+        System.out.println("_________"+ "opdracht4"+"_________");
+
+        int testNumbers=25000;
+
+        // test it 5 times
+        Instant start = Instant.now();
+        for (int i = 0; i < 5; i++) {
+
+
+            List<Integer> numbers = Utils.generateArrayWithNumbers(testNumbers);
+
+            System.out.printf("-=[ Starting SORT of %d numbers ]=-\n", testNumbers);
+
+            Instant startTime = Instant.now();
+            //paramaters are the list halves
+            numbers = divideAndConquer(numbers);
+
+            // Registreer de eind tijd
+            Instant endTime = Instant.now();
+
+            System.out.printf("  -> Sorted %d numbers in: %s\n\n", testNumbers, Duration.between(startTime, endTime));
+            System.out.println(numbers);
+        }
+        Instant end = Instant.now();
+        System.out.printf(" sorting finished in: %s\n\n", Duration.between(start, end));
+
+    }
+
+    private static List<Integer> divideAndConquer(List<Integer> integers){
+        ArrayDivider div = new ArrayDivider(integers, max);
+        Thread divThread = new Thread(div);
+        divThread.start();
+        try{
+            divThread.join();
+        }catch (Exception e ){
+            e.printStackTrace();
+        }
+        return div.getNumbersList();
+    }
+
+}

@@ -11,9 +11,16 @@ Wat ons op valt aan de metingen is dat wanneer het aantal nummers verdubbeld wor
 
 
 opdracht 2:
- -> Sorted 25000 numbers in: PT1.865S
- -> Sorted 50000 numbers in: PT7.537S
- -> Sorted 100000 numbers in: PT30.595S
- -> Sorted 200000 numbers in: PT2M6.552S
- -> Sorted 400000 numbers in: PT9M12.972S
+    -> Sorted 25000 numbers in: PT1.865S
+    -> Sorted 50000 numbers in: PT7.537S
+    -> Sorted 100000 numbers in: PT30.595S
+    -> Sorted 200000 numbers in: PT2M6.552S
+    -> Sorted 400000 numbers in: PT9M12.972S
+
+ opdracht 3:
+     -> Sorted 25000 numbers in: PT1.296S
+     -> Sorted 50000 numbers in: PT4.911S
+     -> Sorted 100000 numbers in: PT20.487S
+     -> Sorted 200000 numbers in: PT1M21.763S
+     -> Sorted 400000 numbers in: PT6M4.618S
 
