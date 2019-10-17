@@ -52,7 +52,6 @@ public class Opdracht2 {
 
             // Laat resultaat zien
             System.out.printf(" -> Sorted %d numbers in: %s\n\n", testNumber, Duration.between(startTime, endTime));
-            System.out.println(numbers);
 
         }
 

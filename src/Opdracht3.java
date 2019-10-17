@@ -12,10 +12,10 @@ public class Opdracht3 {
         System.out.println("_________"+ "opdracht3"+"_________");
 
         int[] testNumbers= {
-                25000,
-                50000,
-                100000,
-                200000,
+//                25000,
+//                50000,
+//                100000,
+//                200000,
                 400000
         };
 
@@ -31,8 +31,7 @@ public class Opdracht3 {
             // Registreer de eind tijd
             Instant endTime = Instant.now();
 
-            System.out.printf(numbers.size() + " -> Sorted %d numbers in: %s\n\n", testNumber, Duration.between(startTime, endTime));
-            System.out.println(numbers);
+            System.out.printf(" -> Sorted %d numbers in: %s\n\n", testNumber, Duration.between(startTime, endTime));
         }
 
 
