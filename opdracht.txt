@@ -51,6 +51,7 @@ een ForkJoin threadpool gebruikt, samen met de RecursiveTask.
 Bepaal nu weer hoe lang je programma nodig heeft om te sorteren. Hoe vergelijken de tijden met die
 van opdracht 1.4? Hoeveel threads denk je dat gebruikt worden door de ForkJoin-pool (leg uit waarom
 je dat denkt)?
+
 In te leveren via Blackboard:
 1. Een verslag met daarin het ontwerp van je software, de resultaten van je metingen en de
 antwoorden op de vragen gesteld in de opdracht.

@@ -16,7 +16,7 @@ public class Bubblesort implements Runnable {
     }
 
     /*
-        bubble sort method with threads
+        bubble sortWithForkList method with threads
      */
 
 

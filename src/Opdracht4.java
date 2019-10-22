@@ -14,7 +14,7 @@ import java.util.List;
  *     bepaalde drempelwaarde, dan zal de thread 2 nieuwe threads aanmaken die ieder weer één helft van
  *     de lijst sorteren. Zijn die threads klaar, dan voegt de thread de twee (gesorteerde) arrays weer samen.
  *     Op die manier ontstaat dus een ‘boom’ van actieve threads.
- *     Threads die hun werk niet gaan ‘outsourcen’ sorteren de arrays weer met bubble sort.
+ *     Threads die hun werk niet gaan ‘outsourcen’ sorteren de arrays weer met bubble sortWithForkList.
  *     Experimenteer nu met de drempelwaarde waarbij een thread het werk gaat uitbesteden aan twee
  *     nieuwe threads. Print steeds weer uit hoe lang het duurt om de array te sorteren.
  *     Toon je resultaten in een grafiek en beantwoord de volgende vragen:
@@ -29,54 +29,54 @@ public class Opdracht4 {
 
     public static void Opdracht4(){
 
-        System.out.println("_________"+ "opdracht4"+"_________");
-
-        ArrayList<Thread> threads = new ArrayList<>();
-        ArrayList<String> halloLijst = new ArrayList<>();
-
-        int test = 50000;
-
-        Instant startTime = Instant.now();
-        System.out.printf("\n-=[ Starting number %d ]=-\n", test);
-        threads.add(new Thread(new MijnMerger(halloLijst, test)));
-
-        try {
-            for (Thread t : threads) {
-                t.start();
-                t.join();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        // Registreer de eind tijd
-        Instant endTime = Instant.now();
-
-        System.out.println("Threads finished!. Took: " + Duration.between(startTime, endTime));
-
-//        int testNumbers=25000;
+//        System.out.println("_________"+ "opdracht4"+"_________");
 //
-//        // test it 5 times
-//        Instant start = Instant.now();
-//        for (int i = 0; i < 5; i++) {
+//        ArrayList<Thread> threads = new ArrayList<>();
+//        ArrayList<String> halloLijst = new ArrayList<>();
 //
+//        int test = 50000;
 //
-//            List<Integer> numbers = Utils.generateArrayWithNumbers(testNumbers);
+//        Instant startTime = Instant.now();
+//        System.out.printf("\n-=[ Starting number %d ]=-\n", test);
+//        threads.add(new Thread(new MijnMerger(halloLijst, test)));
 //
-//            System.out.printf("-=[ Starting SORT of %d numbers ]=-\n", testNumbers);
-//
-//            Instant startTime = Instant.now();
-//            //paramaters are the list halves
-//            numbers = divideAndConquer(numbers);
-//
-//            // Registreer de eind tijd
-//            Instant endTime = Instant.now();
-//
-//            System.out.printf("  -> Sorted %d numbers in: %s\n\n", testNumbers, Duration.between(startTime, endTime));
-//            System.out.println(numbers);
+//        try {
+//            for (Thread t : threads) {
+//                t.start();
+//                t.join();
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
 //        }
-//        Instant end = Instant.now();
-//        System.out.printf(" sorting finished in: %s\n\n", Duration.between(start, end));
+//
+//        // Registreer de eind tijd
+//        Instant endTime = Instant.now();
+//
+//        System.out.println("Threads finished!. Took: " + Duration.between(startTime, endTime));
+
+        int testNumbers=25000;
+
+        // test it 5 times
+        Instant start = Instant.now();
+        for (int i = 0; i < 5; i++) {
+
+
+            List<Integer> numbers = Utils.generateArrayWithNumbers(testNumbers);
+
+            System.out.printf("-=[ Starting SORT of %d numbers ]=-\n", testNumbers);
+
+            Instant startTime = Instant.now();
+            //paramaters are the list halves
+            numbers = divideAndConquer(numbers);
+
+            // Registreer de eind tijd
+            Instant endTime = Instant.now();
+
+            System.out.printf(numbers+"  -> Sorted %d numbers in: %s\n\n", testNumbers, Duration.between(startTime, endTime));
+            System.out.println(numbers);
+        }
+        Instant end = Instant.now();
+        System.out.printf(" sorting finished in: %s\n\n", Duration.between(start, end));
 
     }
 

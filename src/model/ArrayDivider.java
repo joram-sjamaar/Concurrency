@@ -3,7 +3,6 @@ package model;
 import Util.Utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ArrayDivider extends Thread{
@@ -44,12 +43,10 @@ public class ArrayDivider extends Thread{
                 }catch (Exception e ){
                     e.printStackTrace();
                 }
-
-//                List<Integer> combinedList = div1.getNumbersList();
-//                combinedList.addAll();
             }
-            div1.getNumbersList().addAll(div2.getNumbersList());
-            numbers = Utils.sortAndMerge(div1.getNumbersList(),0,part1.size()-1);
+
+
+            numbers = Utils.mergeLists(div1.getNumbersList(),div2.getNumbersList());
 
 
 

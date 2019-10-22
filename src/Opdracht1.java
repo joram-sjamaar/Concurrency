@@ -2,13 +2,12 @@ import Util.Utils;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Opdracht1 {
 
 //    Schrijf een Java-programma dat een instelbaar aantal gehele getallen genereert en deze in een array
-//    plaats. Sorteer deze getallen met behulp van bubble sort.
+//    plaats. Sorteer deze getallen met behulp van bubble sortWithForkList.
 //    Bepaal nu hoeveel tijd je programma nodig heeft om de array te sorteren. Test je programma in ieder
 //    geval 25.000, 50.000, 100.000, 200.000 en 400.000 getallen en toon de resultaten in je verslag. Wat
 //    valt je op aan de resultaten?
