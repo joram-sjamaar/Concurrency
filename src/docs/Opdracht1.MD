@@ -88,3 +88,41 @@ De relatie met de vorige twee opdrachten is hierin duidelijk. De eerste opdracht
   100.000 | 31 seconden            | 17 seconden           | 14 seconden            | 1.8x
   200.000 | 2 minuten 10 seconden  | 1 minuten 18 seconden | 52 seconden            | 1.7x
   400.000 | 9 minuten 38 seconden  | 6 minuten             | 6 minuten 38 seconden  | 1.6x
+
+##Opgave 1.4
+
+####Opdracht
+_Maak nu een programma waarin bij het sorteren van de array deze weer in twee helften wordt gesplitst
+zoals in opdracht 1.2. Start ook nu voor elke helft weer een thread, waarbij elke thread verantwoordelijk
+is voor het sorteren van zijn deel van de lijst._
+
+_Dit keer echter bekijkt de thread hoeveel nummers er gesorteerd moeten worden. Is dit meer dan een
+bepaalde drempelwaarde, dan zal de thread 2 nieuwe threads aanmaken die ieder weer één helft van
+de lijst sorteren. Zijn die threads klaar, dan voegt de thread de twee (gesorteerde) arrays weer samen.
+Op die manier ontstaat dus een ‘boom’ van actieve threads.
+Threads die hun werk niet gaan ‘outsourcen’ sorteren de arrays weer met bubble sort._
+
+####Resultaten
+
+| Drempelwaarde | Tijd (MS) |
+| ------------- | --------- |
+| 20            | 37        |
+| 40            | 183       |
+| 60            | 102       |
+| 120           | 49        |
+| 240           | 31        |
+| 480           | 38        |
+| 960           | 67        |
+| 1920          | 143       |
+| 3840          | 204       |
+| 7680          | 436       |
+
+
+**Grafiek**
+
+![Grafiek Opdracht 1.4](gra_opr_1.4.png)
+
+
+####Conclusie
+Het verlagen van de drempelwaarde leverde geen resultaat meer op na het verlagen van 240 naar 120.
+Dit is te verklaren omdat de bubbelsort na deze waarde sneller is dan een nieuwe threads aanmaken en daarop wachten.

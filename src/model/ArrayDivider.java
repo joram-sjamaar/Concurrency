@@ -5,7 +5,7 @@ import Util.Utils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayDivider extends Thread{
+public class ArrayDivider extends Thread {
     private List<Integer> numbers;
     private int max;
 
