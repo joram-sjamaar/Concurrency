@@ -14,7 +14,7 @@ public class Week1 {
 //        Opdracht1.Opdracht1();
 //        Opdracht2.Opdracht2();
 //        Opdracht3.Opdracht3();
-        Opdracht4.Opdracht4();
-       // Opdracht5.opdracht5();
+//        Opdracht4.Opdracht4();
+        Opdracht5.opdracht5();
     }
 }
