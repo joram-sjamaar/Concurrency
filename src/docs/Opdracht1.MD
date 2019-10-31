@@ -126,3 +126,50 @@ Threads die hun werk niet gaan ‘outsourcen’ sorteren de arrays weer met bubb
 ####Conclusie
 Het verlagen van de drempelwaarde leverde geen resultaat meer op na het verlagen van 240 naar 120.
 Dit is te verklaren omdat de bubbelsort na deze waarde sneller is dan een nieuwe threads aanmaken en daarop wachten.
+
+##Opgave 1.5
+
+####Opdracht
+_De vorige opdracht was een typisch voorbeeld van een divide-and-conquer strategie om een probleem
+ op te lossen. Java heeft een speciaal framework om dit soort oplossingen te implementeren:
+ RecursiveTask in combinatie met een ForkJoin-threadpool.
+ Maak een versie van je programma waarbij je niet zelf de threads maakt (zoals in opdracht 1.4), maar
+ een ForkJoin threadpool gebruikt, samen met de RecursiveTask.
+ Bepaal nu weer hoe lang je programma nodig heeft om te sorteren. Hoe vergelijken de tijden met die
+ van opdracht 1.4? Hoeveel threads denk je dat gebruikt worden door de ForkJoin-pool (leg uit waarom
+ je dat denkt)?_
+ 
+ 20: 5ms
+ 40: 31ms
+ 60: 21ms
+ 120: 19ms
+ 240: 23ms
+ 480: 38ms
+ 960: 71ms
+ 1920: 170ms
+ 3840: 296ms
+ 7680: 435ms
+####Resultaten
+
+| Drempelwaarde | Tijd (MS) |
+| ------------- | --------- |
+| 20            | 5         |
+| 40            | 31        |
+| 60            | 21        |
+| 120           | 19        |
+| 240           | 23        |
+| 480           | 38        |
+| 960           | 71        |
+| 1920          | 170       |
+| 3840          | 296       |
+| 7680          | 435       |
+
+**Grafiek**
+![Grafiek Opdracht 1.5](gra_opr_1.5.png)
+
+####Conclusie
+Als we de resultataten vergelijken dan zien we dat de ForkJoinPool aanzienelijk sneller is in de optimale range (40-480 nummers).
+Echter bij de hogere nummers (960-7680) zijn de resultaten ongeveer gelijk en is er geen sprake van een meetbare tijdswinst.
+<br><br>
+Voor de grootte van de Pool geldt: meten = weten. Dit meten we met de methode `getPoolSize()` De pool grootte is consequent '8' met 25000 getallen om te sorteren.<br><br>
+Dit is te verklaren omdat er gestolen wordt. Bijvoorbeeld bij 20 getallen wordt er 41 keer gesteeld.
